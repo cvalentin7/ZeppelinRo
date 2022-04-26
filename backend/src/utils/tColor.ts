@@ -10,7 +10,7 @@ export const tColor = new t.Type<number, string>(
   (from, to) =>
     either.chain(t.string.validate(from, to), (input) => {
       const parsedColor = parseColor(input);
-      return parsedColor == null ? t.failure(from, to, "Invalid color") : t.success(rgbToInt(parsedColor));
+      return parsedColor == null ? t.failure(from, to, "Culoare nevalidă") : t.success(rgbToInt(parsedColor));
     }),
   (s) => intToRgb(s).join(","),
 );
