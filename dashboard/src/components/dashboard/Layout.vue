@@ -22,7 +22,7 @@
             to="/docs"
             role="menuitem"
             class="py-1 px-2 rounded hover:bg-gray-700">
-            Go to documentation
+            Accesați documentația
           </router-link>
         </div>
       </div>
