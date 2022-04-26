@@ -1,80 +1,79 @@
 <template>
   <div>
-    <h1>Argument Types</h1>
+    <h1>Tipuri de argumente</h1>
     <p>
-      This page details the different argument types available for commands.
+      Această pagină detaliază diferitele tipuri de argumente disponibile pentru comenzi.
     </p>
 
-    <h2 id="string">string</h2>
+    <h2 id="string">şir</h2>
     <p>
-      Any text
+      Orice text
     </p>
 
-    <h2 id="number">number</h2>
+    <h2 id="number">număr</h2>
     <p>
-      Any number
+      Orice număr
     </p>
 
-    <h2 id="user">user</h2>
+    <h2 id="user">utilizator</h2>
     <p>
-      Anything that uniquely identifies a user. This includes:
+      Orice lucru care identifică în mod unic un utilizator. Aceasta include:
     </p>
     <ul>
-      <li>User ID <code>401063006034984960</code></li>
-      <li>User mention <code>@valentin24#8389</code></li>
-      <li>Loose user mention <code>valentin24#8389</code></li>
+      <li>ID-ul de utilizator <code>401063006034984960</code></li>
+      <li>Mențiune de utilizator <code>@valentin24#8389</code></li>
+      <li>Mențiune liberă de utilizator <code>valentin24#8389</code></li>
     </ul>
 
-    <h2 id="userId">userId</h2>
+    <h2 id="userId">ID-ul de utilizator</h2>
     <p>
-      A valid user ID, e.g. <code>108552944961454080</code>
+      Un ID de utilizator valid, de ex. <code>401063006034984960</code>
     </p>
 
-    <h2 id="channel">channel</h2>
+    <h2 id="channel">canal</h2>
     <p>
-      Anything that uniquely identifies a channel. This includes:
+      Orice care identifică unic un canal. Aceasta include:
     </p>
     <ul>
-      <li>Channel ID <code>473087035574321152</code></li>
-      <li>Channel mention <code>#my-channel</code></li>
+      <li>ID canal <code>940059682897272832</code></li>
+      <li>Mențiune de canal <code>#general</code></li>
     </ul>
 
-    <h2 id="channelId">channelId</h2>
+    <h2 id="channelId">ID canal</h2>
     <p>
-      A valid channel ID, e.g. <code>473087035574321152</code>
+      Un ID de canal valid, de ex. <code>940059682897272832</code>
     </p>
 
-    <h2 id="role">role</h2>
+    <h2 id="role">rol</h2>
     <p>
-      Anything that uniquely identifies a role. This includes:
+      Orice care identifică în mod unic un rol. Aceasta include:
     </p>
     <ul>
-      <li>Role ID <code class="inline-code">473085927053590538</code></li>
-      <li>Role mention <code>@MyRole</code></li>
+      <li>ID rol <code class="inline-code">938908779800584242</code></li>
+      <li>Mențiune de rol <code>@admin</code></li>
     </ul>
 
-    <h2 id="member">member</h2>
+    <h2 id="member">membru</h2>
     <p>
-      Anything that uniquely identifies a member currently on the server. This includes:
+      Orice care identifică în mod unic un membru aflat în prezent pe server. Aceasta include:
     </p>
     <ul>
-      <li>User ID <code>401063006034984960</code></li>
-      <li>User Mention <code>@valentin24#8389</code></li>
-      <li>Loose user mention <code>valentin24#8389</code></li>
+      <li>ID-ul de utilizator <code>401063006034984960</code></li>
+      <li>Mențiune de utilizator <code>@valentin24#8389</code></li>
+      <li>Mențiune liberă de utilizator <code>valentin24#8389</code></li>
     </ul>
 
     <h2 id="resolvedMember">resolvedMember</h2>
     <p>
-      See <code>member</code> above
+      Vedeți <code>membru</code> mai sus
     </p>
 
-    <h2 id="delay">delay</h2>
+    <h2 id="delay">întârziere</h2>
     <p>
-      A delay is used to specify an amount of time. It uses simple letters to specify time durations.<br>
-      For example, <code>2d15h27m3s</code> would be 2 days, 15 hours, 27 minutes and 3 seconds.
+      O întârziere este utilizată pentru a specifica o perioadă de timp. Folosește litere simple pentru a specifica duratele de timp.<br>. De exemplu, <code>2d15h27m3s</code> ar fi 2 zile, 15 ore, 27 minute și 3 secunde.
     </p>
     <p>
-      Note that the delay should always be written as 1 word, without spaces!
+     Rețineți că întârzierea trebuie scrisă întotdeauna ca un cuvânt, fără spații!
     </p>
 
     <Expandable>
@@ -83,19 +82,19 @@
         Durations:
         <ul>
           <li>
-            <code>w</code> Week
+            <code>w</code> Săptămână
           </li>
           <li>
-            <code>d</code> Day
+            <code>d</code> Zi
           </li>
           <li>
-            <code>h</code> Hour
+            <code>h</code> Ora
           </li>
           <li>
             <code>m</code> Minute
           </li>
           <li>
-            <code>s</code> Seconds
+            <code>s</code> Secunde
           </li>
         </ul>
       </template>
