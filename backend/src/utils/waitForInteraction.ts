@@ -27,7 +27,7 @@ export async function waitForButtonConfirm(
 
     collector.on("collect", (interaction: MessageComponentInteraction) => {
       if (options?.restrictToId && options.restrictToId !== interaction.user.id) {
-        interaction.reply({ content: `You are not permitted to use these buttons.`, ephemeral: true });
+        interaction.reply({ content: `Nu aveți voie să utilizați aceste butoane.`, ephemeral: true });
       } else {
         if (interaction.customId.startsWith(`confirmButton:${idMod}:`)) {
           message.delete();
