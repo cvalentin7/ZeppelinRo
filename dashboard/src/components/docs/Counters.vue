@@ -2,24 +2,21 @@
   <div>
     <h1>Counters</h1>
     <p>
-      Counters are an advanced feature in Zeppelin that allows you keep track of per-user, per-channel, or global numbers and trigger specific actions based on this number.
-      Common use cases are infraction points, XP systems, activity roles, and so on.
+      "Counters" este o funcție avansată din Aura care vă permite să urmăriți numerele per utilizator, pe canal sau globale și să declanșați acțiuni specifice pe baza acestui număr. Cazurile de utilizare obișnuite sunt punctele de infracțiune, sistemele XP, rolurile de activitate și așa mai departe.
     </p>
     <p>
-      This guide will be expanded in the future. For now, it contains examples of common counter use cases.
-      Also see the <router-link to="/docs/plugins/counters">documentation for the Counters plugin.</router-link>
+      Acest ghid va fi extins în viitor. Deocamdată, conține exemple de cazuri comune de utilizare a contoarelor. Consultați, de asemenea, <router-link to="/docs/plugins/counters">documentația pentru pluginul Counters.</router-link>
     </p>
 
-    <h2>Examples</h2>
+    <h2>Exemple</h2>
 
-    <h3>Infraction points</h3>
+    <h3>Puncte de infracțiune</h3>
     <p>
-      In this example, warns, mutes, and kicks all accumulate "infraction points" for a user.
-      When the user reaches too many points, they are automatically banned.
+      În acest exemplu, avertismentele, sunetul și loviturile cu piciorul acumulează „puncte de infracțiune” pentru un utilizator. Când utilizatorul atinge prea multe puncte, acestea sunt automat interzise.
     </p>
 
     <Expandable class="wide">
-      <template v-slot:title>Click to view example</template>
+      <template v-slot:title>Faceți clic pentru a vedea un exemplu</template>
       <template v-slot:content>
         <CodeBlock code-lang="yaml">
           plugins:
@@ -31,11 +28,11 @@
                   infraction_points:
                     per_user: true
                     triggers:
-                      # When a user accumulates 50 or more (>=50) infraction points, this trigger will activate.
-                      # The numbers here are arbitrary - you could choose to use 5 or 500 instead, depending on the granularity you want.
+                      # Când un utilizator acumulează 50 sau mai multe (>=50) puncte de infracțiune, acest declanșator se va activa.
+                      # Numerele de aici sunt arbitrare - puteți alege să utilizați 5 sau 500, în funcție de granularitatea dorită.
                       autoban:
                         condition: ">=50"
-                    # Remove 1 infraction point each day
+                    # Eliminați 1 punct de infracțiune în fiecare zi
                     decay:
                       amount: 1
                       every: 24h
@@ -70,24 +67,24 @@
 
                   autoban_on_too_many_infraction_points:
                     triggers:
-                      # The counter trigger we specified further above, "autoban", is used to trigger an automod rule here
+                      # Declanșatorul contor pe care l-am specificat mai sus, „autoban”, este folosit pentru a declanșa o regulă automod aici
                       - counter_trigger:
                           counter: "infraction_points"
                           trigger: "autoban"
                     actions:
                       ban:
-                        reason: "Too many infraction points"
+                        reason: "Prea multe puncte de infracțiune"
         </CodeBlock>
       </template>
     </Expandable>
 
-    <h3>Escalating automod punishments</h3>
+    <h3>Creșterea pedepselor automod</h3>
     <p>
-      This example allows users to trigger the `some_infraction` automod rule 3 times. On the 4th time, they are automatically muted.
+      Acest exemplu permite utilizatorilor să declanșeze regula automată `some_infraction` de 3 ori. La a 4-a oară, acestea primesc mute automat.
     </p>
 
     <Expandable class="wide">
-      <template v-slot:title>Click to view example</template>
+      <template v-slot:title>Faceți clic pentru a vedea un exemplu</template>
       <template v-slot:content>
         <CodeBlock code-lang="yaml">
           plugins:
@@ -99,11 +96,11 @@
                   automod_infractions:
                     per_user: true
                     triggers:
-                      # When a user accumulates 100 or more (>=100) automod infraction points, this trigger will activate
-                      # The numbers here are arbitrary - you could choose to use 10 or 1000 instead.
+                      # Când un utilizator acumulează 100 sau mai multe (>=100) puncte de infracțiune a modului automat, acest declanșator se va activa
+                      # Numerele de aici sunt arbitrare - puteți alege să utilizați 10 sau 1000 în schimb.
                       too_many_infractions:
                         condition: ">=100"
-                    # Remove 100 automod infraction points per hour
+                    # Eliminați 100 de puncte de infracțiune automod pe oră
                     decay:
                       amount: 100
                       every: 1h
@@ -112,20 +109,20 @@
               config:
                 rules:
 
-                  # An example automod rule that adds automod infraction points
+                  # Un exemplu de regulă automod care adaugă puncte de infracțiune automod
                   some_infraction:
                     triggers:
                       - match_words:
-                          words: ['poopoo head']
+                          words: ['esti prost']
 
                     actions:
                       clean: true
-                      reply: 'Do not insult other users'
+                      reply: 'Nu insultați alți utilizatori'
                       add_to_counter:
                         counter: "automod_infractions"
-                        amount: 25 # This infraction adds 25 automod infraction points
+                        amount: 25 # Această infracțiune adaugă 25 de puncte de infracțiune automod
 
-                  # An example rule that is triggered when the user accumulates too many automod infraction points
+                  # Un exemplu de regulă care este declanșată atunci când utilizatorul acumulează prea multe puncte de infracțiune automod
                   automute_on_too_many_infractions:
                     triggers:
                       - counter_trigger:
@@ -134,21 +131,20 @@
 
                     actions:
                       mute:
-                        reason: "You have been muted for tripping too many automod filters"
+                        reason: "Ați primit mute pentru că ați declanșat prea multe filtre automod"
                         remove_roles_on_mute: true
                         restore_roles_on_mute: true
         </CodeBlock>
       </template>
     </Expandable>
 
-    <h3>Simple XP system</h3>
+    <h3>Sistem XP simplu</h3>
     <p>
-      This example creates an XP system where every message sent grants you 1 XP, max once per minute.
-      At 100, 250, 500, and 1000 XP the system grants the user a new role.
+      Acest exemplu creează un sistem XP în care fiecare mesaj trimis vă oferă 1 XP, maxim o dată pe minut. La 100, 250, 500 și 1000 XP sistemul acordă utilizatorului un nou rol.
     </p>
 
     <Expandable class="wide">
-      <template v-slot:title>Click to view example</template>
+      <template v-slot:title>Faceți clic pentru a vedea un exemplu</template>
       <template v-slot:content>
         <CodeBlock code-lang="yaml">
           plugins:
@@ -177,12 +173,12 @@
                       - any_message: {}
 
                     actions:
-                      log: false # Don't spam logs with XP changes
+                      log: false # Nu trimiteți spam în jurnalele cu modificări XP
                       add_to_counter:
                         counter: "xp"
-                        amount: 1 # Each message adds 1 XP
+                        amount: 1 # Fiecare mesaj adaugă 1 XP
 
-                    cooldown: 1m # Only count 1 message per minute
+                    cooldown: 1m # Numărați doar 1 mesaj pe minut
 
                   add_xp_role_1:
                     triggers:
@@ -191,7 +187,7 @@
                           trigger: "role_1"
 
                     actions:
-                      add_roles: ["123456789123456789"] # Role ID for xp role 1
+                      add_roles: ["955526681181978654"] # ID rol pentru rolul xp 1
 
                   add_xp_role_2:
                     triggers:
@@ -200,7 +196,7 @@
                           trigger: "role_2"
 
                     actions:
-                      add_roles: ["123456789123456789"] # Role ID for xp role 2
+                      add_roles: ["955526637003341884"] # ID rol pentru rolul xp 2
 
                   add_xp_role_3:
                     triggers:
@@ -209,7 +205,7 @@
                           trigger: "role_3"
 
                     actions:
-                      add_roles: ["123456789123456789"] # Role ID for xp role 3
+                      add_roles: ["955526471512911892"] # ID rol pentru rolul xp 3
 
                   add_xp_role_4:
                     triggers:
@@ -218,18 +214,18 @@
                           trigger: "role_4"
 
                     actions:
-                      add_roles: ["123456789123456789"] # Role ID for xp role 4
+                      add_roles: ["955526468434280458"] # ID rol pentru rolul xp 4
         </CodeBlock>
       </template>
     </Expandable>
 
-    <h3>Activity role ("regular role")</h3>
+    <h3>Rol de activitate („prezenta timpurie”)</h3>
     <p>
-      This example is similar to the XP system, but the number decays and the role granted by the system can be removed if the user's activity goes down.
+      Acest exemplu este similar cu sistemul XP, dar numărul scade și rolul acordat de sistem poate fi eliminat dacă activitatea utilizatorului scade.
     </p>
 
     <Expandable class="wide">
-      <template v-slot:title>Click to view example</template>
+      <template v-slot:title>Faceți clic pentru a vedea un exemplu</template>
       <template v-slot:content>
         <CodeBlock code-lang="yaml">
           plugins:
@@ -242,8 +238,8 @@
                     triggers:
                       grant_role:
                         condition: ">=100"
-                        # We set a separate threshold for when the role should be removed. This is so the decay doesn't remove the activity role immediately.
-                        # If this value isn't set, reverse_condition defaults to the opposite of the condition, i.e. "<100" in this case.
+                        # Am stabilit un prag separat pentru momentul în care rolul ar trebui eliminat. Acest lucru este astfel încât dezintegrarea să nu elimine imediat rolul de activitate.
+                        # Dacă această valoare nu este setată, reverse_condition este implicit opusă condiției, adică „<100” în acest caz.
                         reverse_condition: "<50"
                     decay:
                       amount: 1
@@ -258,12 +254,12 @@
                       - any_message: {}
 
                     actions:
-                      log: false # Don't spam logs with activity changes
+                      log: false # Nu trimiteți spam în jurnalele cu modificări de activitate
                       add_to_counter:
                         counter: "activity"
-                        amount: 1 # Each message adds 1 to the counter
+                        amount: 1 # Fiecare mesaj adaugă 1 la contor
 
-                    cooldown: 1m # Only count 1 message per minute
+                    cooldown: 1m # Numărați doar 1 mesaj pe minut
 
                   grant_activity_role:
                     triggers:
@@ -272,28 +268,28 @@
                           trigger: "grant_role"
 
                     actions:
-                      add_roles: ["123456789123456789"] # Role ID for activity role
+                      add_roles: ["955526458858668052"] # ID de rol pentru rolul de activitate
 
                   remove_activity_role:
                     triggers:
                       - counter_trigger:
                           counter: "activity"
                           trigger: "grant_role"
-                          reverse: true # This indicates we want to use the *reverse* of the specified trigger, see reverse_condition in counters above
+                          reverse: true # Aceasta indică faptul că dorim să folosim *inversul* declanșatorului specificat, vezi reverse_condition în contoarele de mai sus
 
                     actions:
-                      remove_roles: ["123456789123456789"] # Role ID for activity role
+                      remove_roles: ["955526458858668052"] # ID de rol pentru rolul de activitate
         </CodeBlock>
       </template>
     </Expandable>
 
-    <h3>Auto-disable antiraid</h3>
+    <h3>Dezactivați automat antiraid</h3>
     <p>
-      This example disables antiraid after a specific delay.
+      Acest exemplu dezactivează antiraid după o anumită întârziere.
     </p>
 
     <Expandable class="wide">
-      <template v-slot:title>Click to view example</template>
+      <template v-slot:title>Faceți clic pentru a vedea un exemplu</template>
       <template v-slot:content>
         <CodeBlock code-lang="yaml">
           plugins:
@@ -321,7 +317,7 @@
                     actions:
                       set_counter:
                         counter: "antiraid_decay"
-                        value: 10 # "Disable after 10min"
+                        value: 10 # „Dezactivați după 10 minute”
 
                   start_antiraid_timer_high:
                     triggers:
@@ -330,7 +326,7 @@
                     actions:
                       set_counter:
                         counter: "antiraid_decay"
-                        value: 20 # "Disable after 20min"
+                        value: 20 # „Dezactivați după 20 minute”
 
                   disable_antiraid_after_timer:
                     triggers:
