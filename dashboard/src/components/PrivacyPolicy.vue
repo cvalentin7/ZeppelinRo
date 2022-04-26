@@ -1,11 +1,11 @@
 <template>
   <div class="privacy-policy">
     <div class="wrapper">
-      <h1>Zeppelin Privacy Policy</h1>
+      <h1>Aura Privacy Policy</h1>
 
-      <h2>Zeppelin overview</h2>
+      <h2>Aura overview</h2>
       <p>
-        Zeppelin is a moderation bot for Discord that allows server staff to
+        Aura is a moderation bot for Discord that allows server staff to
         carry out moderator actions (warn, mute, kick, ban, clean messages, view
         user information, etc.),
         keep records of infractions, perform automated actions ("automod", e.g.
@@ -23,10 +23,10 @@
 
       <h2>Stored data</h2>
       <p>
-        When Zeppelin is used by a server, the following categories data can be
+        When Aura is used by a server, the following categories data can be
         stored by the bot.
         The specific categories of data saved for each server depends on how the
-        server has configured Zeppelin.
+        server has configured Aura.
       </p>
       <ul>
         <li>Recent messages and username/nickname changes of users engaged on
@@ -81,7 +81,7 @@
       <p>
         To request access to personal data stored about you, or to request its
         deletion, to the extent permitted by GDPR, please send an email to <a
-        href="mailto:contact@mivir.fi">contact@mivir.fi</a>.
+        href="mailto:ticket@romaniasupport.site">ticket@romaniasupport.site</a>.
       </p>
     </div></div>
 </template>

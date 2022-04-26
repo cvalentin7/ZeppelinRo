@@ -20,9 +20,9 @@
       Anything that uniquely identifies a user. This includes:
     </p>
     <ul>
-      <li>User ID <code>108552944961454080</code></li>
-      <li>User mention <code>@Dark#1010</code></li>
-      <li>Loose user mention <code>Dark#1010</code></li>
+      <li>User ID <code>401063006034984960</code></li>
+      <li>User mention <code>@valentin24#8389</code></li>
+      <li>Loose user mention <code>valentin24#8389</code></li>
     </ul>
 
     <h2 id="userId">userId</h2>
@@ -58,9 +58,9 @@
       Anything that uniquely identifies a member currently on the server. This includes:
     </p>
     <ul>
-      <li>User ID <code>108552944961454080</code></li>
-      <li>User Mention <code>@Dark#1010</code></li>
-      <li>Loose user mention <code>Dark#1010</code></li>
+      <li>User ID <code>401063006034984960</code></li>
+      <li>User Mention <code>@valentin24#8389</code></li>
+      <li>Loose user mention <code>valentin24#8389</code></li>
     </ul>
 
     <h2 id="resolvedMember">resolvedMember</h2>

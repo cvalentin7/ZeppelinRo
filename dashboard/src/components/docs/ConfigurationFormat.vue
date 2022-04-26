@@ -16,8 +16,8 @@
 
       # role id: level
       levels:
-        "172949857164722176": 100 # Example admin
-        "172950000412655616": 50 # Example mod
+        "938908779800584242": 100 # Example admin
+        "938908815129190530": 50 # Example mod
 
       plugins:
         mod_plugin:
