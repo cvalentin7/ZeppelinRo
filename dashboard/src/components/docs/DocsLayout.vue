@@ -8,7 +8,7 @@
         <img class="flex-auto w-10 mr-5" src="../../img/logo.png" alt="" aria-hidden="true">
 
         <router-link to="/docs">
-          <h1 class="flex-auto font-semibold">Aura Documentation</h1>
+          <h1 class="flex-auto font-semibold">Documentația Aura</h1>
         </router-link>
       </div>
       <div class="flex-1 flex items-center justify-end">
@@ -16,7 +16,7 @@
           to="/dashboard"
           role="menuitem"
           class="py-1 px-2 rounded hover:bg-gray-700 hidden lg:block">
-          Go to dashboard
+          Accesați dashboard
         </router-link>
         <button class="link-button text-2xl leading-zero lg:hidden" v-on:click="toggleMobileMenu()" aria-hidden="true">
           <Menu />
@@ -24,7 +24,7 @@
       </div>
     </nav>
 
-    <a class="sr-only-when-not-focused text-center block py-2" href="#main-anchor">Skip to main content</a>
+    <a class="sr-only-when-not-focused text-center block py-2" href="#main-anchor">Treci la conținutul principal</a>
 
     <!-- Content wrapper -->
     <div class="flex flex-wrap items-start mt-8">
