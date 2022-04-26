@@ -21,8 +21,8 @@ if (window.location.pathname !== "/") {
     errorElement.classList.add("has-error");
 
     const errorMessages = {
-      noAccess: "No dashboard access. If you think this is a mistake, please contact your server owner.",
-      expiredLogin: "Dashboard login expired. Please log in again.",
+      noAccess: "Fără acces la dashboard. Dacă credeți că aceasta este o greșeală, vă rugăm să contactați proprietarul serverului.",
+      expiredLogin: "Conectarea la dashboard a expirat. Te rog logheaza-te din nou.",
     };
 
     const errorMessageElem = document.createElement("div");

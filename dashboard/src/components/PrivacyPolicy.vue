@@ -1,87 +1,82 @@
 <template>
   <div class="privacy-policy">
     <div class="wrapper">
-      <h1>Aura Privacy Policy</h1>
+      <h1>Politica de confidențialitate Aura</h1>
 
-      <h2>Aura overview</h2>
+      <h2>Prezentare generală Aura</h2>
       <p>
-        Aura is a moderation bot for Discord that allows server staff to
-        carry out moderator actions (warn, mute, kick, ban, clean messages, view
-        user information, etc.),
-        keep records of infractions, perform automated actions ("automod", e.g.
-        message filtering), post detailed logs on logging channels, and set up
-        systems such as reaction roles.
-        The bot also includes a web dashboard that server administrators can log
-        in to through Discord OAuth.
+        Aura este un bot de moderare pentru Discord care permite personalului serverului
+        desfășurați acțiuni de moderator (avertizare, amutire, lovire, interzicere, curățare mesaje, vizualizare
+        informații despre utilizator etc.),
+        ține evidența infracțiunilor, efectuează acțiuni automate ("automod", de ex.
+        filtrarea mesajelor), postați jurnalele detaliate pe canalele de înregistrare și configurați
+        sisteme precum rolurile de reacție.
+        Botul include, de asemenea, un tablou de bord web la care administratorii de server se pot conecta prin Discord OAuth.
       </p>
       <p>
-        The bot's source code is available at
+        Codul sursă al botului este disponibil la
         <a href="https://github.com/Dragory/ZeppelinBot">
           https://github.com/Dragory/ZeppelinBot
         </a>
       </p>
 
-      <h2>Stored data</h2>
+      <h2>Date stocate</h2>
       <p>
-        When Aura is used by a server, the following categories data can be
-        stored by the bot.
-        The specific categories of data saved for each server depends on how the
-        server has configured Aura.
+        Când Aura este utilizată de un server, următoarele categorii de date pot fi stocate de către bot.
+        Categoriile specifice de date salvate pentru fiecare server depind de modul în care serverul a configurat Aura.
       </p>
       <ul>
-        <li>Recent messages and username/nickname changes of users engaged on
-          the server
+        <li>
+          Mesajele recente și modificările numelui de utilizator/poreclelor utilizatorilor implicați pe server
         </li>
-        <li>Recent bulk deleted messages</li>
-        <li>Basic user information, moderator-entered text, and relevant message
-          archives for infraction records
+        <li>Mesaje recente șterse în bloc</li>
+        <li>
+          Informații de bază despre utilizator, text introdus de moderator și arhive de mesaje relevante pentru înregistrările de infracțiuni
         </li>
-        <li>A subset of previously held roles and nickname on the server to be
-          restored when a user rejoins
+        <li>
+          Un subset de roluri și porecla deținute anterior pe server, care urmează să fie restaurate atunci când un utilizator se reunește
         </li>
-        <li>Basic server details of the server using the bot</li>
+        <li>Detaliile de bază ale serverului folosind botul</li>
       </ul>
       <p>
-        Additionally, when a user logs in to the web dashboard the following
-        types of data are stored:
+        În plus, atunci când un utilizator se conectează la tabloul de bord web, sunt stocate următoarele tipuri de date:
       </p>
       <ul>
-        <li>Basic Discord user information</li>
-        <li>Time and originating IP address of the login for security audit
-          purposes
+        <li>Informații de bază despre utilizatorul Discord</li>
+        <li>
+          Ora și adresa IP de origine a autentificarii în scopuri de audit de securitate
         </li>
       </ul>
 
-      <h2>Data retention</h2>
+      <h2>Păstrarea datelor</h2>
       <ul>
         <li>
-          Recent messages are stored for 24h
+          Mesajele recente sunt stocate timp de 24 de ore
           <ul>
-            <li>Deleted messages within this 24h are cleared 5 minutes after
-              deletion
+            <li>
+              Mesajele șterse în acest interval de 24 de ore sunt șterse la 5 minute după ștergere
             </li>
           </ul>
         </li>
-        <li>5 most recent usernames and 10 most recent nicknames of users
-          engaged in chat or voice channels are stored for 30 days
+        <li>
+          Cele mai recente 5 nume de utilizator și 10 cele mai recente porecle ale utilizatorilor implicați în chat sau canale vocale sunt stocate timp de 30 de zile
         </li>
-        <li>Archives of bulk-deleted messages are stored for 30 days</li>
-        <li>Infraction record data is kept until the server stops using Zeppelin
-          unless explicitly deleted
+        <li>Arhivele mesajelor șterse în bloc sunt stocate timp de 30 de zile</li>
+        <li>
+          Datele de înregistrare a infracțiunilor sunt păstrate până când serverul nu mai folosește Aura, dacă nu sunt șterse în mod explicit
         </li>
-        <li>Roles and nicknames that are restored on rejoin are cleared when the
-          user rejoins
+        <li>
+          Rolurile și poreclele care sunt restaurate la reînregistrare sunt șterse atunci când utilizatorul se reunește
         </li>
-        <li>User information for users logged in to the bot's web dashboard via
-          Discord OAuth is stored as long as the server uses Zeppelin
+        <li>
+          Informațiile despre utilizatori conectați la dashboard-ul botului prin Discord OAuth sunt stocate atâta timp cât serverul folosește Aura
         </li>
       </ul>
 
-      <h2>Data access and deletion requests</h2>
+      <h2>Cereri de acces la date și de ștergere</h2>
       <p>
-        To request access to personal data stored about you, or to request its
-        deletion, to the extent permitted by GDPR, please send an email to <a
-        href="mailto:ticket@romaniasupport.site">ticket@romaniasupport.site</a>.
+        Pentru a solicita accesul la datele personale stocate despre dvs. sau pentru a solicita ștergerea acestora, în măsura permisă de GDPR, vă rugăm să trimiteți un e-mail la
+        <a href="mailto:ticket@romaniasupport.site">ticket@romaniasupport.site</a>.
       </p>
     </div></div>
 </template>
