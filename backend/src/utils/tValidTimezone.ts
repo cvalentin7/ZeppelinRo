@@ -7,7 +7,7 @@ export const tValidTimezone = new t.Type<string, string>(
   (s): s is string => typeof s === "string",
   (from, to) =>
     either.chain(t.string.validate(from, to), (input) => {
-      return isValidTimezone(input) ? t.success(input) : t.failure(from, to, `Invalid timezone: ${input}`);
+      return isValidTimezone(input) ? t.success(input) : t.failure(from, to, `Fus orar nevalid: ${input}`);
     }),
   (s) => s,
 );
