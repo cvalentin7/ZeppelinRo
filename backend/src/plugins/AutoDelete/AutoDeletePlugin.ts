@@ -20,9 +20,9 @@ export const AutoDeletePlugin = zeppelinGuildPlugin<AutoDeletePluginType>()({
   name: "auto_delete",
   showInDocs: true,
   info: {
-    prettyName: "Auto-delete",
-    description: "Allows Zeppelin to auto-delete messages from a channel after a delay",
-    configurationGuide: "Maximum deletion delay is currently 5 minutes",
+    prettyName: "Stergere automata",
+    description: "Permite Aurei să șteargă automat mesajele de pe un canal după o perioada",
+    configurationGuide: "Durata maximă la ștergere este în prezent de 5 minute",
   },
 
   dependencies: () => [TimeAndDatePlugin, LogsPlugin],
