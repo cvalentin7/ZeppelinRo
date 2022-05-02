@@ -9,7 +9,7 @@
         <strong>Opțiuni implicite</strong>  (de la Aura)
       </li>
       <li>
-        <strong>Opțiuni personalizate</strong> (setat de tine în configurare)
+        <strong>Opțiuni personalizate</strong> (setat de tine în configuratie)
       </li>
       <li>
         <strong>Suprascrie</strong> (valori de configurare condiționate, vezi mai jos)
@@ -37,7 +37,7 @@
             example_plugin:
               config:
                 can_kick: false
-                kick_message: "Ai fost dat cu afara"
+                kick_message: "Ai fost dat afara"
                 nested:
                   value: "Hello"
                   other_value: "Foo"
@@ -53,7 +53,7 @@
                 - channel: "940059682897272832"
                   config:
                     can_kick: false
-                # Nu permiteți lovirea în niciun fir
+                # Nu permiteți lovirea în niciun thread
                 - is_thread: true
                   config:
                     can_kick: false
@@ -80,7 +80,7 @@
                 # Potrivire pe ID de utilizator
                 - user: "401063006034984960"
                   config:
-                    kick_message: "Ai fost dat cu piciorul de Valentin"
+                    kick_message: "Ai fost dat afara de Valentin"
                 # Se potrivește în mai multe condiții
                 - channel: "940059682897272832"
                   role: "952961935316508722"
@@ -107,7 +107,7 @@
       </template>
     </Expandable>
 
-    <h2>suprascrieri implicite</h2>
+    <h2>Suprascrieri implicite</h2>
     <p>
       Multe plugin-uri au unele suprascrieri în mod implicit, de obicei pentru nivelul implicit de mod (50) și/sau nivelul implicit de administrator (100). Acestea sunt aplicate înaintea oricăror modificări personalizate în configurație.
     </p>

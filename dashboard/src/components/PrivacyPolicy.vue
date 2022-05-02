@@ -6,7 +6,7 @@
       <h2>Prezentare generală Aura</h2>
       <p>
         Aura este un bot de moderare pentru Discord care permite personalului serverului
-        desfășurați acțiuni de moderator (avertizare, amutire, lovire, interzicere, curățare mesaje, vizualizare
+        desfășurați acțiuni de moderator (avertizare, amutire, kick, ban, curățare mesaje, vizualizare
         informații despre utilizator etc.),
         ține evidența infracțiunilor, efectuează acțiuni automate ("automod", de ex.
         filtrarea mesajelor), postați jurnalele detaliate pe canalele de înregistrare și configurați

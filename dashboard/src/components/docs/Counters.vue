@@ -12,7 +12,7 @@
 
     <h3>Puncte de infracțiune</h3>
     <p>
-      În acest exemplu, avertismentele, sunetul și loviturile cu piciorul acumulează „puncte de infracțiune” pentru un utilizator. Când utilizatorul atinge prea multe puncte, acestea sunt automat interzise.
+      În acest exemplu, avertismentele, mute și kick acumulează „puncte de infracțiune” pentru un utilizator. Când utilizatorul atinge prea multe puncte, acestea sunt automat banati.
     </p>
 
     <Expandable class="wide">
