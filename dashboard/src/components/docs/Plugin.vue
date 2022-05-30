@@ -14,7 +14,7 @@
           <alert class="inline-icon mr-1 text-yellow-300" />
         </div>
         <div class="flex-auto">
-          <strong>Notă!</strong> Acesta este un plugin vechi care nu mai este întreținut activ și poate fi eliminat într-o actualizare viitoare.
+          <strong>Note!</strong> This is a legacy plugin which is no longer actively maintained and may be removed in a future update.
           <div v-if="typeof data.info.legacy === 'string'" class="mt-4">
             <MarkdownBlock v-if="typeof data.info.legacy === 'string'" :content="data.info.legacy"></MarkdownBlock>
           </div>
@@ -24,20 +24,20 @@
 
     <Tabs>
       <Tab :active="tab === 'usage'">
-        <router-link class="unstyled" v-bind:to="'/docs/plugins/' + pluginName + '/usage'">Utilizare</router-link>
+        <router-link class="unstyled" v-bind:to="'/docs/plugins/' + pluginName + '/usage'">Usage</router-link>
       </Tab>
       <Tab :active="tab === 'configuration'">
-        <router-link class="unstyled" v-bind:to="'/docs/plugins/' + pluginName + '/configuration'">Configurare</router-link>
+        <router-link class="unstyled" v-bind:to="'/docs/plugins/' + pluginName + '/configuration'">Configuration</router-link>
       </Tab>
     </Tabs>
 
     <!-- Usage tab -->
     <div class="usage" v-if="tab === 'usage'">
-      <h2 class="sr-only">Utilizare</h2>
+      <h2 class="sr-only">Usage</h2>
 
       <div v-if="!hasUsageInfo">
-        Acest plugin nu are informații de utilizare.
-        Vezi <router-link v-bind:to="'/docs/plugins/' + pluginName + '/configuration'">Configurarea</router-link>.
+        This plugin has no usage information.
+        See <router-link v-bind:to="'/docs/plugins/' + pluginName + '/configuration'">Configuration</router-link>.
       </div>
 
       <!-- Usage guide -->
@@ -47,7 +47,7 @@
 
       <!-- Command list -->
       <div v-if="data.commands.length">
-        <h3 id="commands" class="text-2xl">Comenzi</h3>
+        <h3 id="commands" class="text-2xl">Commands</h3>
         <div v-for="command in data.commands"
              class="command mb-4"
              v-bind:ref="getCommandSlug(command)" v-bind:class="{target: targetCommandId === getCommandSlug(command)}">
@@ -60,12 +60,12 @@
 
           <div v-bind:class="{'-mt-2': command.description}">
             <div v-if="command.usage">
-              <span class="font-semibold">Utilizare de bază:</span> <code class="inline-code">{{ command.usage }}</code>
+              <span class="font-semibold">Basic usage:</span> <code class="inline-code">{{ command.usage }}</code>
             </div>
           </div>
 
           <Expandable class="mt-4">
-            <template v-slot:title>Informații suplimentare</template>
+            <template v-slot:title>Additional information</template>
             <template v-slot:content>
               <!--
               <div v-if="command.config.extra.info && command.config.extra.info.usageGuide">
@@ -84,12 +84,12 @@
               -->
 
               <p v-if="command.permission">
-                <span class="font-semibold">Permisiune:</span>
+                <span class="font-semibold">Permission:</span>
                 <code class="inline-code">{{ command.permission }}</code>
               </p>
 
               <div v-if="command.signature">
-                <h5 class="font-semibold mb-2">Semnături:</h5>
+                <h5 class="font-semibold mb-2">Signatures:</h5>
                 <ul class="list-none">
                   <li v-for="(signature, index) in getCommandSignatures(command)" v-bind:class="{'mt-8': index !== 0}">
                     <code class="inline-code bg-gray-900">
@@ -99,7 +99,7 @@
 
                     <div class="pl-4">
                       <div v-if="getSignatureParameters(signature).length">
-                        <div class="font-semibold text-sm mt-2">Parametrii</div>
+                        <div class="font-semibold text-sm mt-2">Parameters</div>
                         <ul>
                           <li v-for="paramInfo in getSignatureParameters(signature)">
                             <code>{{ renderParameter(paramInfo.name, paramInfo.param) }}</code>
@@ -113,7 +113,7 @@
                       </div>
 
                       <div v-if="getSignatureOptions(signature).length">
-                        <div class="font-semibold text-sm mt-2">Opțiuni</div>
+                        <div class="font-semibold text-sm mt-2">Options</div>
                         <ul>
                           <li v-for="optionInfo in getSignatureOptions(signature)">
                             <code>{{ renderOption(optionInfo.name, optionInfo.option) }}</code>
@@ -139,24 +139,24 @@
     <div class="configuration" v-if="tab === 'configuration'">
       <!-- Basic config info -->
       <p>
-        <strong>Nume în config:</strong> <code>{{ data.name }}</code><br>
-        Pentru a activa acest plugin cu configurația implicită, adăugați <code>{{ data.name }}: {}</code> la <code>plugins</code> lista in config
+        <strong>Name in config:</strong> <code>{{ data.name }}</code><br>
+        To enable this plugin with default configuration, add <code>{{ data.name }}: {}</code> to the <code>plugins</code> list in config
       </p>
 
       <!-- Configuration guide -->
       <div v-if="data.info.configurationGuide">
-        <h2 id="configuration-guide">Ghid de configurare</h2>
+        <h2 id="configuration-guide">Configuration guide</h2>
         <MarkdownBlock :content="data.info.configurationGuide" class="content"></MarkdownBlock>
       </div>
 
       <!-- Default configuration -->
-      <h2 id="default-configuration">Configurație implicită</h2>
+      <h2 id="default-configuration">Default configuration</h2>
       <CodeBlock code-lang="yaml">{{ renderConfiguration(data.defaultOptions) }}</CodeBlock>
 
       <!-- Config schema -->
-      <h2 id="config-schema">Schema de configurare</h2>
+      <h2 id="config-schema">Config schema</h2>
       <Expandable class="wide">
-        <template v-slot:title>Faceți clic pentru a extinde</template>
+        <template v-slot:title>Click to expand</template>
         <template v-slot:content>
           <CodeBlock code-lang="plain">{{ data.configSchema }}</CodeBlock>
         </template>

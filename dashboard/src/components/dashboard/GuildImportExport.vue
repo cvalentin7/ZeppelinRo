@@ -2,35 +2,35 @@
   <div>
     <h1>Import / Export</h1>
     <p>
-      <strong>Notă!</strong>
-      Această caracteristică este în prezent experimentală. Asigurați-vă că exportați întotdeauna o copie de rezervă înainte de a importa datele serverului. Dacă întâmpinați probleme, vă rugăm să le raportați pe [serverul RomaniaSupport](https://discord.gg/EnAbtd6zyf).
+      <strong>Note!</strong>
+      This feature is currently experimental. Make sure to always export a backup before importing server data. If you encounter any issues, please report them on the [Zeppelin Discord server](https://discord.gg/zeppelin).
     </p>
 
-    <h2>Exportați datele serverului</h2>
-    <button class="inline-block bg-gray-700 rounded px-1 hover:bg-gray-800 hover:bg-gray-800" @click="runExport()" :disabled="exporting">Export de date</button>
+    <h2>Export server data</h2>
+    <button class="inline-block bg-gray-700 rounded px-1 hover:bg-gray-800 hover:bg-gray-800" @click="runExport()" :disabled="exporting">Export data</button>
 
-    <p v-if="exporting">Export de date deschis în fereastră nouă!</p>
+    <p v-if="exporting">Opened data export in new window!</p>
     <p v-else>&nbsp;</p>
 
-    <h2>Importați datele serverului</h2>
+    <h2>Import server data</h2>
     <p>
-      <strong>Notă!</strong>
-      Faceți întotdeauna o copie de rezervă a datelor existente de mai sus înainte de a importa.
+      <strong>Note!</strong>
+      Always take a backup of your existing data above before importing.
     </p>
     <div class="mb-4">
-      <h3>Fișier de import</h3>
+      <h3>Import file</h3>
       <input type="file" @change="selectImportFile($event.target.files[0])">
     </div>
     <div class="mb-4">
-      <h3>Opțiuni de caz</h3>
-      <label><input type="radio" v-model="importCaseMode" value="bumpImportedCases"> Lăsați numerele de cazuri existente, începeți cazurile importate de la sfârșit</label><br>
-      <label><input type="radio" v-model="importCaseMode" value="bumpExistingCases"> Lăsați numerele de cazuri importate, renumerotați cazurile existente pentru a începe după cazurile importate</label><br>
-      <label><input type="radio" v-model="importCaseMode" value="replace"> Înlocuiți cazurile existente (!! ACEST VOR ȘTERGE TOATE CAZURILE EXISTENTE !!)</label>
+      <h3>Case options</h3>
+      <label><input type="radio" v-model="importCaseMode" value="bumpImportedCases"> Leave existing case numbers, start imported cases from the end</label><br>
+      <label><input type="radio" v-model="importCaseMode" value="bumpExistingCases"> Leave imported case numbers, re-number existing cases to start after imported cases</label><br>
+      <label><input type="radio" v-model="importCaseMode" value="replace"> Replace existing cases (!! THIS WILL DELETE ALL EXISTING CASES !!)</label>
     </div>
-    <button class="inline-block bg-gray-700 rounded px-1 hover:bg-gray-800" :class="{ 'bg-gray-800': importFile == null, 'hover:bg-gray-800': importFile != null }" @click="runImport()" :disabled="importFile == null">Importați fișierul selectat</button>
+    <button class="inline-block bg-gray-700 rounded px-1 hover:bg-gray-800" :class="{ 'bg-gray-800': importFile == null, 'hover:bg-gray-800': importFile != null }" @click="runImport()" :disabled="importFile == null">Import selected file</button>
 
-    <p v-if="importError">Eroare: {{ importError }}</p>
-    <p v-else-if="importing">Se importă...</p>
+    <p v-if="importError">Error: {{ importError }}</p>
+    <p v-else-if="importing">Importing...</p>
     <p v-else>&nbsp;</p>
   </div>
 </template>
@@ -111,7 +111,7 @@ export default {
         this.importFile = null;
       }
 
-      window.alert("Datele au fost importate cu succes!");
+      window.alert("Data imported successfully!");
     },
     async runExport() {
       if (this.exporting) {

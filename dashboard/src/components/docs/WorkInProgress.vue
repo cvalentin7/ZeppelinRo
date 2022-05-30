@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Lucrări în curs</h1>
+    <h1>Work in progress</h1>
     <p>
-      Această pagină este în lucru. (Netermina-ta)
+      This page is a work in progress.
     </p>
   </div>
 </template>

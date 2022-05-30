@@ -1,82 +1,87 @@
 <template>
   <div class="privacy-policy">
     <div class="wrapper">
-      <h1>Politica de confidențialitate Aura</h1>
+      <h1>Zeppelin Privacy Policy</h1>
 
-      <h2>Prezentare generală Aura</h2>
+      <h2>Zeppelin overview</h2>
       <p>
-        Aura este un bot de moderare pentru Discord care permite personalului serverului
-        desfășurați acțiuni de moderator (avertizare, amutire, kick, ban, curățare mesaje, vizualizare
-        informații despre utilizator etc.),
-        ține evidența infracțiunilor, efectuează acțiuni automate ("automod", de ex.
-        filtrarea mesajelor), postați jurnalele detaliate pe canalele de înregistrare și configurați
-        sisteme precum rolurile de reacție.
-        Botul include, de asemenea, un tablou de bord web la care administratorii de server se pot conecta prin Discord OAuth.
+        Zeppelin is a moderation bot for Discord that allows server staff to
+        carry out moderator actions (warn, mute, kick, ban, clean messages, view
+        user information, etc.),
+        keep records of infractions, perform automated actions ("automod", e.g.
+        message filtering), post detailed logs on logging channels, and set up
+        systems such as reaction roles.
+        The bot also includes a web dashboard that server administrators can log
+        in to through Discord OAuth.
       </p>
       <p>
-        Codul sursă al botului este disponibil la
+        The bot's source code is available at
         <a href="https://github.com/Dragory/ZeppelinBot">
           https://github.com/Dragory/ZeppelinBot
         </a>
       </p>
 
-      <h2>Date stocate</h2>
+      <h2>Stored data</h2>
       <p>
-        Când Aura este utilizată de un server, următoarele categorii de date pot fi stocate de către bot.
-        Categoriile specifice de date salvate pentru fiecare server depind de modul în care serverul a configurat Aura.
+        When Zeppelin is used by a server, the following categories data can be
+        stored by the bot.
+        The specific categories of data saved for each server depends on how the
+        server has configured Zeppelin.
       </p>
       <ul>
-        <li>
-          Mesajele recente și modificările numelui de utilizator/poreclelor utilizatorilor implicați pe server
+        <li>Recent messages and username/nickname changes of users engaged on
+          the server
         </li>
-        <li>Mesaje recente șterse în bloc</li>
-        <li>
-          Informații de bază despre utilizator, text introdus de moderator și arhive de mesaje relevante pentru înregistrările de infracțiuni
+        <li>Recent bulk deleted messages</li>
+        <li>Basic user information, moderator-entered text, and relevant message
+          archives for infraction records
         </li>
-        <li>
-          Un subset de roluri și porecla deținute anterior pe server, care urmează să fie restaurate atunci când un utilizator se reunește
+        <li>A subset of previously held roles and nickname on the server to be
+          restored when a user rejoins
         </li>
-        <li>Detaliile de bază ale serverului folosind botul</li>
+        <li>Basic server details of the server using the bot</li>
       </ul>
       <p>
-        În plus, atunci când un utilizator se conectează la tabloul de bord web, sunt stocate următoarele tipuri de date:
+        Additionally, when a user logs in to the web dashboard the following
+        types of data are stored:
       </p>
       <ul>
-        <li>Informații de bază despre utilizatorul Discord</li>
-        <li>
-          Ora și adresa IP de origine a autentificarii în scopuri de audit de securitate
+        <li>Basic Discord user information</li>
+        <li>Time and originating IP address of the login for security audit
+          purposes
         </li>
       </ul>
 
-      <h2>Păstrarea datelor</h2>
+      <h2>Data retention</h2>
       <ul>
         <li>
-          Mesajele recente sunt stocate timp de 24 de ore
+          Recent messages are stored for 24h
           <ul>
-            <li>
-              Mesajele șterse în acest interval de 24 de ore sunt șterse la 5 minute după ștergere
+            <li>Deleted messages within this 24h are cleared 5 minutes after
+              deletion
             </li>
           </ul>
         </li>
-        <li>
-          Cele mai recente 5 nume de utilizator și 10 cele mai recente porecle ale utilizatorilor implicați în chat sau canale vocale sunt stocate timp de 30 de zile
+        <li>5 most recent usernames and 10 most recent nicknames of users
+          engaged in chat or voice channels are stored for 30 days
         </li>
-        <li>Arhivele mesajelor șterse în bloc sunt stocate timp de 30 de zile</li>
-        <li>
-          Datele de înregistrare a infracțiunilor sunt păstrate până când serverul nu mai folosește Aura, dacă nu sunt șterse în mod explicit
+        <li>Archives of bulk-deleted messages are stored for 30 days</li>
+        <li>Infraction record data is kept until the server stops using Zeppelin
+          unless explicitly deleted
         </li>
-        <li>
-          Rolurile și poreclele care sunt restaurate la reînregistrare sunt șterse atunci când utilizatorul se reunește
+        <li>Roles and nicknames that are restored on rejoin are cleared when the
+          user rejoins
         </li>
-        <li>
-          Informațiile despre utilizatori conectați la dashboard-ul botului prin Discord OAuth sunt stocate atâta timp cât serverul folosește Aura
+        <li>User information for users logged in to the bot's web dashboard via
+          Discord OAuth is stored as long as the server uses Zeppelin
         </li>
       </ul>
 
-      <h2>Cereri de acces la date și de ștergere</h2>
+      <h2>Data access and deletion requests</h2>
       <p>
-        Pentru a solicita accesul la datele personale stocate despre dvs. sau pentru a solicita ștergerea acestora, în măsura permisă de GDPR, vă rugăm să trimiteți un e-mail la
-        <a href="mailto:ticket@romaniasupport.site">ticket@romaniasupport.site</a>.
+        To request access to personal data stored about you, or to request its
+        deletion, to the extent permitted by GDPR, please send an email to <a
+        href="mailto:contact@mivir.fi">contact@mivir.fi</a>.
       </p>
     </div></div>
 </template>

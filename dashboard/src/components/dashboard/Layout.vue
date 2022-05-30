@@ -7,7 +7,7 @@
         <img class="w-10 mr-5" src="../../img/logo.png" alt="" aria-hidden="true">
 
         <router-link to="/dashboard">
-          <h1 class="font-semibold">Aura Dashboard</h1>
+          <h1 class="font-semibold">Zeppelin Dashboard</h1>
         </router-link>
       </div>
 
@@ -22,7 +22,7 @@
             to="/docs"
             role="menuitem"
             class="py-1 px-2 rounded hover:bg-gray-700">
-            Accesați documentația
+            Go to documentation
           </router-link>
         </div>
       </div>

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h1>Format de configurare</h1>
+    <h1>Configuration format</h1>
     <p>
-      Acesta este formatul de bază al configurației bot pentru un server. Defalcarea de bază este:
+      This is the basic format of the bot configuration for a guild. The basic breakdown is:
     </p>
 
     <ul>
-      <li>Prefix (adică ce caracter precede fiecare comandă)</li>
-      <li>Niveluri de permisiuni (consultați <router-link to="/docs/configuration/permissions">Permisiuni</router-link> pentru mai multe informații)</li>
-      <li>Configurație specifică pluginului (consultați <router-link to="/docs/configuration/plugin-configuration">Configurare plugin</router-link> pentru mai multe informații)</li>
+      <li>Prefix (i.e. what character is preceding each command)</li>
+      <li>Permission levels (see <router-link to="/docs/configuration/permissions">Permissions</router-link> for more info)</li>
+      <li>Plugin-specific configuration (see <router-link to="/docs/configuration/plugin-configuration">Plugin configuration</router-link> for more info)</li>
     </ul>
 
     <CodeBlock code-lang="yaml" trim="start">
@@ -16,13 +16,13 @@
 
       # role id: level
       levels:
-        "938908779800584242": 100 # Exemplu de admin
-        "938908815129190530": 50 # Exemplu de mod
+        "172949857164722176": 100 # Example admin
+        "172950000412655616": 50 # Example mod
 
       plugins:
         mod_plugin:
           config:
-            kick_message: 'Ai fost dat afara'
+            kick_message: 'You have been kicked'
             can_kick: false
           overrides:
             - level: '>=50'
@@ -30,7 +30,7 @@
                 can_kick: true
             - level: '>=100'
               config:
-                kick_message: 'Ai fost dat afara de un admin'
+                kick_message: 'You have been kicked by an admin'
     </CodeBlock>
   </div>
 </template>

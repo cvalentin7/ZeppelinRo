@@ -1,65 +1,73 @@
 <template>
   <div>
-    <h1>Permisiuni</h1>
+    <h1>Permissions</h1>
     <p>
-      Permisiunile din Aura sunt pur și simplu valori în configurația pluginului care sunt verificate atunci când este utilizată comanda.
-      Aceste valori pot fi modificate prin suprascrieri (consultați <router-link to="/docs/configuration/plugin-configuration">Configurarea pluginului</router-link> pentru mai multe informații)
-      și poate depinde de ex. ID utilizator, ID rol, ID canal, ID categorie sau <strong>nivel de permisiune</strong>.
+      Permissions in Zeppelin are simply values in plugin configuration that are checked when the command is used.
+      These values can be changed with overrides (see <router-link to="/docs/configuration/plugin-configuration">Plugin configuration</router-link> for more info)
+      and can depend on e.g. user id, role id, channel id, category id, or <strong>permission level</strong>.
     </p>
 
-    <h2>Niveluri de permisiune</h2>
+    <h2>Permission levels</h2>
     <p>
-      Cel mai simplu mod de a controla accesul la comenzile și caracteristicile botului este prin intermediul nivelurilor de permisiune. Aceste niveluri sunt pur și simplu un număr (de obicei între 0 și 100), bazat pe rolurile utilizatorului sau pe ID-ul utilizatorului, care poate fi apoi utilizat în înlocuirea permisiunilor. În mod implicit, mai multe comenzi sunt „doar moderator” (nivelul 50 și mai sus) sau „doar admin” (nivelul 100 și mai sus).
+      The simplest way to control access to bot commands and features is via permission levels.
+      These levels are simply a number (usually between 0 and 100), based on the user's roles or user id, that can then
+      be used in permission overrides. By default, several commands are "moderator only" (level 50 and up) or "admin only" (level 100 and up).
     </p>
     <p>
-      În plus, a avea un nivel de permisiune mai ridicat înseamnă că anumite comenzi (cum ar fi !ban) nu pot fi folosite împotriva ta de către utilizatorii cu un nivel de permisiune mai scăzut sau egal (de exemplu, moderatorii nu se pot interzice reciproc sau administratorii de deasupra lor).
+      Additionally, having a higher permission level means that certain commands (such as !ban) can't be used against
+      you by users with a lower or equal permission level (so e.g. moderators can't ban each other or admins above them).
     </p>
     <p>
-      Nivelurile de permisiune sunt definite în configurația din secțiunea <strong>niveluri</strong>. De exemplu:
+      Permission levels are defined in the config in the <strong>levels</strong> section. For example:
     </p>
 
     <CodeBlock code-lang="yaml">
-      # „rol/id utilizator”: nivel
+      # "role/user id": level
       levels:
-        "938908779800584242": 100 # Exemplu de admin
-        "938908815129190530": 50 # Exemplu de moderator
+        "172949857164722176": 100 # Example admin
+        "172950000412655616": 50 # Example mod
     </CodeBlock>
 
-    <h2>Exemple</h2>
+    <h2>Examples</h2>
 
-    <h3>Anulări de bază</h3>
+    <h3>Basic overrides</h3>
     <p>
-      Pentru acest exemplu, să presupunem că avem un plugin numit <code>cats</code> care are o comandă <code>!cat</code> blocată în spatele permisiunii <code>can_cat</code>. Să presupunem că în mod implicit, pluginul permite oricui să folosească <code>!cat</code>, dar dorim să-l restricționăm doar la moderatori.
+      For this example, let's assume we have a plugin called <code>cats</code> which has a command <code>!cat</code> locked behind the permission <code>can_cat</code>.
+      Let's say that by default, the plugin allows anyone to use <code>!cat</code>, but we want to restrict it to moderators only.
     </p>
     <p>
-      Iată cum ar arăta configurația pentru aceasta:
+      Here's what the configuration for this would look like:
     </p>
 
     <CodeBlock code-lang="yaml">
       plugins:
         cats:
           config:
-            can_cat: false # Aici setăm permisiunea false în mod implicit
+            can_cat: false # Here we set the permission false by default
           overrides:
-            # În această înlocuire, can_cat este schimbat la „true” pentru oricine cu un nivel de permisiune de 50 sau mai mare
+            # In this override, can_cat is changed to "true" for anyone with a permission level of 50 or higher
             - level: ">=50"
               config:
                 can_cat: true
     </CodeBlock>
 
-    <h3>Înlocuirea setărilor implicite</h3>
+    <h3>Replacing defaults</h3>
     <p class="mb-1">
-      În acest exemplu, să presupunem că nu doriți să utilizați nivelurile de permisiuni implicite de 50 și 100 pentru mods și, respectiv, administratori. Să presupunem că folosiți mai multe niveluri incrementale: 10, 20, 30, 40, 50...<br>. Vrem să facem astfel încât comenzile moderatorului să fie disponibile începând de la nivelul 70. În plus, am dori să rezervăm interzicerea doar pentru nivelurile 90+. Pentru a face acest lucru, trebuie să <strong>înlocuim</strong> suprascrierile implicite care activează comenzile moderatorului la nivelul 50.
+      In this example, let's assume you don't want to use the default permission levels of 50 and 100 for mods and admins respectively.
+      Let's say you're using various incremental levels instead: 10, 20, 30, 40, 50...<br>
+      We want to make it so moderator commands are available starting at level 70.
+      Additionally, we'd like to reserve banning for levels 90+ only.
+      To do this, we need to <strong>replace</strong> the default overrides that enable moderator commands at level 50.
     </p>
     <p class="mb-1">
-      Iată cum ar arăta configurația pentru aceasta:
+      Here's what the configuration for this would look like:
     </p>
 
     <CodeBlock code-lang="yaml">
       plugins:
         mod_actions:
           replaceDefaultOverrides: true
-          overrides: # „=" aici înseamnă „înlocuiește orice setări implicite”
+          overrides: # The "=" here means "replace any defaults"
             - level: ">=70"
               config:
                 can_warn: true

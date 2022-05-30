@@ -1,27 +1,27 @@
 <template>
   <div>
-    <h1>Acces la dashboard</h1>
+    <h1>Dashboard access</h1>
     <p>
-      Pe această pagină puteți gestiona cine are acces la tabloul de bord Aura al serverului.
+      On this page you can manage who has access to the server's Zeppelin dashboard.
     </p>
 
-    <h2 class="mt-8">Roluri</h2>
+    <h2 class="mt-8">Roles</h2>
     <ul>
       <li>
-        <strong>Proprietar:</strong> Toate permisiunile. Gestionat automat de bot.
+        <strong>Owner:</strong> All permissions. Managed automatically by the bot.
       </li>
       <li>
-        <strong>Manager bot:</strong> Poate gestiona utilizatorii tabloului de bord (inclusiv alți manageri de bot) și poate edita configurația serverului
+        <strong>Bot manager:</strong> Can manage dashboard users (including other bot managers) and edit server configuration
       </li>
       <li>
-        <strong>Operator bot:</strong> Poate edita configurația serverului
+        <strong>Bot operator:</strong> Can edit server configuration
       </li>
     </ul>
 
-    <h2 class="mt-8">Utilizatorii dashboard</h2>
+    <h2 class="mt-8">Dashboard users</h2>
     <div class="mt-4">
       <div v-if="permanentPermissionAssignments.length === 0">
-        Fără utilizatori de tablou de bord
+        No dashboard users
       </div>
       <ul v-if="permanentPermissionAssignments.length">
         <li v-for="perm in permanentPermissionAssignments">
@@ -32,7 +32,7 @@
             <div class="flex gap-4">
               <label class="block" v-if="isOwner(perm)">
                 <input type="checkbox" checked="checked" disabled>
-                Proprietar
+                Owner
               </label>
               <label class="block">
                 <input
@@ -41,7 +41,7 @@
                   @change="ev => setPermissionValue(perm, 'MANAGE_ACCESS', ev.target.checked)"
                   :disabled="hasPermissionIndirectly(perm, 'MANAGE_ACCESS')"
                 >
-                Manager de bot
+                Bot manager
               </label>
               <label class="block">
                 <input
@@ -50,7 +50,7 @@
                   @change="ev => setPermissionValue(perm, 'EDIT_CONFIG', ev.target.checked)"
                   :disabled="hasPermissionIndirectly(perm, 'EDIT_CONFIG')"
                 >
-                Operator bot
+                Bot operator
               </label>
               <a href="#" v-on:click="deletePermissionAssignment(perm)" v-if="!isOwner(perm)">
                 Delete
@@ -61,18 +61,18 @@
       </ul>
       <div class="mt-2">
         <a href="#" v-on:click="addPermissionAssignment()">
-          Adăugați un utilizator nou
+          Add new user
         </a>
       </div>
     </div>
 
-    <h2 class="mt-8">Utilizatori temporari ai tabloului de bord</h2>
+    <h2 class="mt-8">Temporary dashboard users</h2>
     <p>
-      Puteți adăuga utilizatori temporari de tablou de bord la, de ex. solicitați ajutor de la o persoană din afara serverului dvs.<br>
-      Utilizatorii temporari au întotdeauna permisiuni de <strong>operator bot</strong>.
+      You can add temporary dashboard users to e.g. request help from a person outside your organization.<br>
+      Temporary users always have <strong>Bot operator</strong> permissions.
     </p>
     <div v-if="temporaryPermissionAssignments.length === 0">
-      Fără utilizatori temporari ai tabloului de bord
+      No temporary dashboard users
     </div>
     <ul v-if="temporaryPermissionAssignments.length">
       <li v-for="perm in temporaryPermissionAssignments">
@@ -81,11 +81,11 @@
             <strong>{{ perm.target_id }}</strong>
           </div>
           <div>
-            Expira in {{ formatTimeRemaining(perm) }}
+            Expires in {{ formatTimeRemaining(perm) }}
           </div>
           <div>
             <a href="#" v-on:click="deletePermissionAssignment(perm)">
-              Șterge
+              Delete
             </a>
           </div>
         </div>
@@ -93,7 +93,7 @@
     </ul>
     <div class="mt-2">
       <a href="#" v-on:click="addTemporaryPermissionAssignment()">
-        Adăugați un utilizator temporar timp de 1 oră
+        Add temporary user for 1 hour
       </a>
     </div>
   </div>
@@ -193,7 +193,7 @@ export default {
       },
 
       addPermissionAssignment() {
-        const userId = window.prompt("Introduceți ID-ul utilizatorului");
+        const userId = window.prompt("Enter user ID");
         if (!userId) {
           return;
         }
@@ -208,7 +208,7 @@ export default {
       },
 
       addTemporaryPermissionAssignment() {
-        const userId = window.prompt("Introduceți ID-ul utilizatorului");
+        const userId = window.prompt("Enter user ID");
         if (!userId) {
           return;
         }
@@ -224,7 +224,7 @@ export default {
       },
 
       deletePermissionAssignment(perm: GuildPermissionAssignment) {
-        const confirm = window.confirm(`Eliminați ${perm.target_id} de la utilizatorii dashboard?`);
+        const confirm = window.confirm(`Remove ${perm.target_id} from dashboard users?`);
         if (! confirm) {
           return;
         }

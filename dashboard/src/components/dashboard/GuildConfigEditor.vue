@@ -4,18 +4,18 @@
   </div>
   <div v-else>
     <div v-if="errors.length" class="bg-gray-800 py-2 px-3 rounded shadow-md mb-4">
-      <div class="font-semibold">Erori:</div>
+      <div class="font-semibold">Errors:</div>
       <div v-for="error in errors">{{ error }}</div>
     </div>
 
     <div class="flex items-center flex-wrap">
-      <h1 class="flex-full md:flex-auto">Configurare pentru {{ guild.name }}</h1>
+      <h1 class="flex-full md:flex-auto">Config for {{ guild.name }}</h1>
       <button v-if="!saving" class="flex-none bg-green-800 px-5 py-2 rounded hover:bg-green-700" v-on:click="save">
-        <span v-if="saved">Salvat!</span>
-        <span v-else>Salvează</span>
+        <span v-if="saved">Saved!</span>
+        <span v-else>Save</span>
       </button>
       <div v-if="saving" class="flex-none bg-gray-700 px-5 py-2 rounded">
-        Salvează...
+        Saving...
       </div>
     </div>
 
